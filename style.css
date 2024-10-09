@@ -1,0 +1,330 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-red: #ff0000;
+    --off-white: #f5f5f5;
+    --dark-gray: #1a1a1a;
+    --light-gray: #e5e5e5;
+    --pure-white: #ffffff;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: var(--pure-white);
+    color: var(--dark-gray);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: var(--pure-white);
+    color: var(--dark-gray);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s;
+    z-index: 1000;
+    border-bottom: 2px solid var(--dark-gray);
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: var(--primary-red);
+}
+
+.logo-link {
+    text-decoration: none;
+    /* Remove underline */
+    color: inherit;
+    /* Keep the color of the logo text */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: var(--dark-gray);
+    text-decoration: none;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--primary-red);
+}
+
+main {
+    flex: 1 0 auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+}
+
+.hero {
+    background-color: var(--dark-gray);
+    color: var(--pure-white);
+    text-align: left;
+    padding: 100px 40px;
+    width: 100%;
+    position: relative;
+    min-height: 400px;
+    /* Added minimum height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--primary-red);
+}
+
+h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: -2px;
+    line-height: 1.1;
+}
+
+.featured-products,
+.kitchen-products,
+.gardening-products {
+    width: 100%;
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.featured-products h2,
+.kitchen-products h2,
+.gardening-products h2 {
+    margin-bottom: 40px;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    text-align: center;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(300px, auto);
+    gap: 20px;
+    width: 100%;
+}
+
+/* Feature larger products */
+.product:nth-child(5n + 1) {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+/* Medium-sized products */
+.product:nth-child(8n + 4) {
+    grid-column: span 2;
+}
+
+.product .price {
+    font-size: 1.5rem;
+    /* Larger font size for prominence */
+    font-weight: bold;
+    /* Make the price bold */
+    color: var(--primary-red);
+    /* Maintain the red color */
+    margin: 10px 0;
+    /* Space above and below */
+}
+
+.product .description {
+    font-size: 1rem;
+    /* Use a slightly smaller font size */
+    color: var(--dark-gray);
+    /* Keep the dark gray color for contrast */
+    margin: 5px 0;
+    /* Space above and below */
+    line-height: 1.5;
+    /* Improve readability with line height */
+}
+
+/* Add a subtle border around the price */
+.product .price {
+    border-bottom: 1px solid var(--light-gray);
+    /* Light bottom border */
+    padding-bottom: 5px;
+    /* Space between text and border */
+}
+
+/* Responsive grid adjustments */
+@media (max-width: 1200px) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+
+    h1 {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    nav ul {
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 0.8rem;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .hero {
+        padding: 80px 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 15px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    nav ul {
+        gap: 10px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product:nth-child(5n + 1),
+    .product:nth-child(8n + 4) {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    main {
+        margin-top: 120px;
+    }
+
+    .hero {
+        padding: 60px 20px;
+        min-height: 350px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .featured-products,
+    .kitchen-products,
+    .gardening-products {
+        padding: 0 15px;
+    }
+}
+
+.product {
+    background-color: var(--pure-white);
+    border: 2px solid var(--dark-gray);
+    text-align: left;
+    padding: 15px;
+    transition: transform 0.2s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+}
+
+.product:hover::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: -2px;
+    width: calc(100% + 4px);
+    height: 4px;
+    background-color: var(--primary-red);
+}
+
+.product img {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+    border: 1px solid var(--light-gray);
+}
+
+.product h3 {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    margin: 15px 0 10px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.product p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--primary-red);
+    font-weight: 500;
+    margin-top: auto;
+}
+
+footer {
+    flex-shrink: 0;
+    text-align: center;
+    padding: 30px 20px;
+    background-color: var(--dark-gray);
+    color: var(--pure-white);
+    font-size: 0.9rem;
+    margin-top: auto;
+    letter-spacing: 1px;
+}
+
+.copyright a {
+    color: var(--pure-white);
+}
+
+/* Touch device optimization */
+@media (hover: none) {
+    .product:hover {
+        transform: none;
+    }
+}
