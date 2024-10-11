@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE products [
+    <!ENTITY currency "AUD">
+    <!ENTITY company "DIY Paradise">
+
+    <!ELEMENT products (category, product+)>
+    <!ELEMENT category (#PCDATA)>
+    <!ELEMENT product (name, description, pricing, searchTags?, reviews*, images+, relatedURL, specifications, manufacturer, stockLevel)>
+    <!ELEMENT name (#PCDATA)>
+    <!ELEMENT description (#PCDATA)>
+    <!ELEMENT pricing (#PCDATA)>
+    <!ELEMENT searchTags (tag*)>
+    <!ELEMENT tag (#PCDATA)>
+    <!ELEMENT reviews (review*)>
+    <!ELEMENT review (#PCDATA)>
+    <!ATTLIST review
+        stars CDATA #REQUIRED
+        date CDATA #REQUIRED>
+    <!ELEMENT images (image+)>
+    <!ELEMENT image EMPTY>
+    <!ATTLIST image
+        src CDATA #REQUIRED
+        alt CDATA #REQUIRED>
+    <!ELEMENT relatedURL (#PCDATA)>
+    <!ELEMENT specifications (spec+)>
+    <!ELEMENT spec (#PCDATA)>
+    <!ATTLIST spec type CDATA #REQUIRED>
+    <!ELEMENT manufacturer (#PCDATA)>
+    <!ELEMENT stockLevel (#PCDATA)>
+    <!ATTLIST stockLevel status (in-stock|low-stock|out-of-stock) #REQUIRED>
+]>
+<products>
+    <category>Garden</category>
+    <product>
+        <name>EcoMow Cordless Lawn Mower</name>
+        <description>80V lithium battery with 60-minute runtime and self-propelled drive</description>
+        <pricing>&currency; 599.99</pricing>
+        <searchTags>
+            <tag>lawn mower</tag>
+            <tag>cordless</tag>
+            <tag>garden</tag>
+        </searchTags>
+        <reviews>
+            <review stars="5" date="2024-09-25">Excellent battery life and cutting power!</review>
+            <review stars="4" date="2024-09-10">Great eco-friendly option.</review>
+        </reviews>
+        <images>
+            <image src="images/cordless-mower.jpg" alt="Cordless Lawn Mower" />
+        </images>
+        <relatedURL>https://diyparadise.bontal.net/ecomow</relatedURL>
+        <specifications>
+            <spec type="battery">80V Lithium</spec>
+            <spec type="runtime">60 minutes</spec>
+            <spec type="cutting-width">48cm</spec>
+        </specifications>
+        <manufacturer>EcoMow</manufacturer>
+        <stockLevel status="in-stock">20</stockLevel>
+    </product>
+    <product>
+        <name>GardenPro Walk-in Greenhouse</name>
+        <description>UV-resistant polyethylene with steel frame and integrated shelving</description>
+        <pricing>&currency; 299.99</pricing>
+        <searchTags>
+            <tag>greenhouse</tag>
+            <tag>gardening</tag>
+            <tag>plants</tag>
+        </searchTags>
+        <reviews>
+            <review stars="4" date="2024-10-05">Easy to assemble and sturdy!</review>
+        </reviews>
+        <images>
+            <image src="images/greenhouse.jpg" alt="Walk-in Greenhouse" />
+        </images>
+        <relatedURL>https://diyparadise.bontal.net/gardenpro</relatedURL>
+        <specifications>
+            <spec type="dimensions">240x120x190cm</spec>
+            <spec type="material">UV-resistant polyethylene</spec>
+            <spec type="shelves">6</spec>
+        </specifications>
+        <manufacturer>GardenPro</manufacturer>
+        <stockLevel status="in-stock">8</stockLevel>
+    </product>
+    <product>
+        <name>PowerTrim Electric Hedge Trimmer</name>
+        <description>600W motor with dual-action blades and ergonomic grip for precise trimming</description>
+        <pricing>&currency; 199.99</pricing>
+        <searchTags>
+            <tag>hedge trimmer</tag>
+            <tag>garden tools</tag>
+            <tag>electric</tag>
+        </searchTags>
+        <reviews>
+            <review stars="5" date="2024-09-30">Perfect for maintaining hedges!</review>
+        </reviews>
+        <images>
+            <image src="images/hedge-trimmer.jpg" alt="Electric Hedge Trimmer" />
+        </images>
+        <relatedURL>https://diyparadise.bontal.net/powertrim</relatedURL>
+        <specifications>
+            <spec type="power">600W</spec>
+            <spec type="blade-length">60cm</spec>
+            <spec type="weight">3.8kg</spec>
+        </specifications>
+        <manufacturer>PowerTrim</manufacturer>
+        <stockLevel status="low-stock">3</stockLevel>
+    </product>
+</products>
