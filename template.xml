@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    File: template.xml
+    Author: Min Thu Khaing
+    Created: October 11, 2024
+-->
 <!DOCTYPE products [
     <!ENTITY currency "AUD">
     <!ENTITY company "DIY Paradise">

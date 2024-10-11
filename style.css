@@ -1,3 +1,8 @@
+/* 
+    File: style.css
+    Author: Min Thu Khaing
+    Created: October 11, 2024
+*/
 * {
     box-sizing: border-box;
     margin: 0;
@@ -326,5 +331,121 @@ footer {
 @media (hover: none) {
     .product:hover {
         transform: none;
+    }
+}
+
+/* Educational Resources section */
+.educational-resources {
+    width: 100%;
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 3rem 20px;
+    background-color: var(--off-white);
+    border: 2px solid var(--dark-gray);
+    position: relative;
+}
+
+.educational-resources::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: -2px;
+    width: calc(100% + 4px);
+    height: 4px;
+    background-color: var(--primary-red);
+}
+
+.educational-resources h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.educational-resources p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 800px;
+}
+
+.educational-resources a {
+    color: var(--primary-red);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.educational-resources a:hover {
+    border-bottom-color: var(--primary-red);
+}
+
+/* Special Announcements section */
+.special-announcements {
+    width: 100%;
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 3rem 20px;
+    background-color: var(--dark-gray);
+    color: var(--pure-white);
+    position: relative;
+    text-align: center;
+}
+
+.special-announcements::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: var(--primary-red);
+}
+
+.special-announcements h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 1.5rem;
+}
+
+.special-announcements p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.special-offer {
+    color: var(--primary-red);
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .testimonial {
+        font-size: 1.3rem;
+        padding: 1.5rem;
+        margin: 2rem auto;
+    }
+
+    .educational-resources,
+    .special-announcements {
+        padding: 2rem 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .testimonial {
+        font-size: 1.1rem;
+        padding: 1rem;
+        margin: 1.5rem auto;
+    }
+
+    .educational-resources p,
+    .special-announcements p {
+        font-size: 1rem;
+    }
+
+    .special-offer {
+        font-size: 1.2rem;
     }
 }
