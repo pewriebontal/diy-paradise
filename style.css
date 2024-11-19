@@ -224,8 +224,9 @@ h1 {
 @media (max-width: 600px) {
     header {
         padding: 15px;
-        flex-direction: column;
-        gap: 10px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .logo {
@@ -447,5 +448,126 @@ footer {
 
     .special-offer {
         font-size: 1.2rem;
+    }
+}
+
+/* Hamburger Menu Styles */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1100;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--dark-gray);
+    transition: all 0.3s ease;
+}
+
+/* Mobile Menu Styles */
+@media (max-width: 768px) {
+    header {
+        padding: 20px;
+    }
+
+    .hamburger {
+        display: flex;
+        position: relative;
+        z-index: 2000;
+    }
+
+    nav ul {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100vh;
+        width: 100vw;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--dark-gray);
+        gap: 40px;
+        z-index: 1500;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+    }
+
+    nav ul.active li {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    nav a {
+        color: var(--pure-white);
+        font-size: 2rem;
+        font-weight: 300;
+        letter-spacing: 2px;
+        position: relative;
+    }
+
+    nav a::after {
+        content: "";
+        position: absolute;
+        left: -10px;
+        right: -10px;
+        bottom: -5px;
+        height: 2px;
+        background-color: var(--primary-red);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+
+    nav a:hover::after {
+        transform: scaleX(1);
+    }
+
+    /* Hamburger Animation */
+    .hamburger span {
+        background-color: var(--dark-gray);
+    }
+
+    .hamburger.active span {
+        background-color: var(--pure-white);
+    }
+
+    .hamburger.active span:first-child {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:last-child {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    /* Prevent body scroll when menu is open */
+    body.menu-open {
+        overflow: hidden;
+    }
+
+    /* Logo color change when menu is open */
+    .menu-open .logo {
+        color: var(--pure-white);
     }
 }
