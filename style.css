@@ -31,26 +31,82 @@ body {
     min-height: 100vh;
 }
 
+/* Update header styles */
 header {
     position: fixed;
     top: 0;
     width: 100%;
-    background: var(--pure-white);
-    color: var(--dark-gray);
-    padding: 20px;
+    height: 80px;
+    /* Initial height */
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: background 0.3s;
+    transition: all 0.3s cubic-bezier(0.28, 0.11, 0.32, 1);
+    /* Apple's easing */
     z-index: 1000;
-    border-bottom: 2px solid var(--dark-gray);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Scrolled state */
+header.scrolled {
+    height: 60px;
+    /* Smaller height when scrolled */
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Add dark mode support */
+@media (prefers-color-scheme: dark) {
+    header {
+        background: rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    header.scrolled {
+        background: rgba(0, 0, 0, 0.7);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    header.scrolled .logo {
+        color: var(--pure-white);
+    }
+}
+
+/* Update mobile menu background */
+@media (max-width: 768px) {
+    nav ul {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+
+    nav a {
+        color: var(--dark-gray);
+    }
 }
 
 .logo {
+    transition: all 0.3s cubic-bezier(0.28, 0.11, 0.32, 1);
     font-size: 1.8rem;
-    font-weight: 700;
-    letter-spacing: -1px;
     color: var(--primary-red);
+    /* Make logo red by default */
+    font-weight: bold;
+    /* Make logo bold */
+}
+
+/* Update the scrolled logo style */
+header.scrolled .logo {
+    color: var(--dark-gray);
+    /* Change to black when scrolled */
+    font-size: 1.5rem;
+    font-weight: bold;
+    /* Keep bold when scrolled */
 }
 
 .logo-link {
@@ -60,10 +116,12 @@ header {
     /* Keep the color of the logo text */
 }
 
+/* Navigation item transitions */
 nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
+    transition: all 0.3s cubic-bezier(0.28, 0.11, 0.32, 1);
 }
 
 nav a {
@@ -74,6 +132,28 @@ nav a {
     letter-spacing: 1px;
     font-size: 0.9rem;
     transition: color 0.3s;
+    padding: 5px 0;
+}
+
+@media (min-width: 769px) {
+    header.scrolled nav a {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 768px) {
+    nav a {
+        color: var(--pure-white);
+        font-size: 2rem !important;
+        /* Force constant size */
+        font-weight: 300;
+        letter-spacing: 2px;
+    }
+
+    /* Keep mobile nav text size constant when scrolled */
+    header.scrolled nav a {
+        font-size: 2rem !important;
+    }
 }
 
 nav a:hover {
@@ -496,7 +576,9 @@ footer {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: var(--dark-gray);
+        background-color: rgba(26, 26, 26, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         gap: 40px;
         z-index: 1500;
     }
@@ -569,5 +651,12 @@ footer {
     /* Logo color change when menu is open */
     .menu-open .logo {
         color: var(--pure-white);
+    }
+}
+
+/* Update dark mode compatibility */
+@media (prefers-color-scheme: dark) {
+    header.scrolled {
+        background: rgba(212, 212, 212, 0.61);
     }
 }
