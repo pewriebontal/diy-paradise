@@ -31,13 +31,11 @@ body {
     min-height: 100vh;
 }
 
-/* Update header styles */
 header {
     position: fixed;
     top: 0;
     width: 100%;
     height: 80px;
-    /* Initial height */
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
@@ -48,12 +46,10 @@ header {
     justify-content: space-between;
     align-items: center;
     transition: all 0.3s cubic-bezier(0.28, 0.11, 0.32, 1);
-    /* Apple's easing */
     z-index: 1000;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Add black line to non-scrolled header */
 header::after {
     content: "";
     position: absolute;
@@ -65,22 +61,18 @@ header::after {
     transition: opacity 0.3s cubic-bezier(0.28, 0.11, 0.32, 1);
 }
 
-/* Make line disappear when scrolled */
 header.scrolled::after {
     opacity: 0;
 }
 
-/* Scrolled state */
 header.scrolled {
     height: 60px;
-    /* Smaller height when scrolled */
     background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* Add dark mode support */
 @media (prefers-color-scheme: dark) {
     header {
         background: rgba(255, 255, 255, 0.1);
@@ -97,7 +89,6 @@ header.scrolled {
     }
 }
 
-/* Update mobile menu background */
 @media (max-width: 768px) {
     nav ul {
         background: rgba(255, 255, 255, 0.7);
@@ -114,28 +105,20 @@ header.scrolled {
     transition: all 0.3s cubic-bezier(0.28, 0.11, 0.32, 1);
     font-size: 1.8rem;
     color: var(--primary-red);
-    /* Make logo red by default */
     font-weight: bold;
-    /* Make logo bold */
 }
 
-/* Update the scrolled logo style */
 header.scrolled .logo {
     color: var(--dark-gray);
-    /* Change to black when scrolled */
     font-size: 1.5rem;
     font-weight: bold;
-    /* Keep bold when scrolled */
 }
 
 .logo-link {
     text-decoration: none;
-    /* Remove underline */
     color: inherit;
-    /* Keep the color of the logo text */
 }
 
-/* Navigation item transitions */
 nav ul {
     list-style: none;
     display: flex;
@@ -164,12 +147,10 @@ nav a {
     nav a {
         color: var(--pure-white);
         font-size: 2rem !important;
-        /* Force constant size */
         font-weight: 300;
         letter-spacing: 2px;
     }
 
-    /* Keep mobile nav text size constant when scrolled */
     header.scrolled nav a {
         font-size: 2rem !important;
     }
@@ -196,7 +177,6 @@ main {
     width: 100%;
     position: relative;
     min-height: 400px;
-    /* Added minimum height */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -245,48 +225,34 @@ h1 {
     width: 100%;
 }
 
-/* Feature larger products */
 .product:nth-child(5n + 1) {
     grid-column: span 2;
     grid-row: span 2;
 }
 
-/* Medium-sized products */
 .product:nth-child(8n + 4) {
     grid-column: span 2;
 }
 
 .product .price {
     font-size: 1.5rem;
-    /* Larger font size for prominence */
     font-weight: bold;
-    /* Make the price bold */
     color: var(--primary-red);
-    /* Maintain the red color */
     margin: 10px 0;
-    /* Space above and below */
 }
 
 .product .description {
     font-size: 1rem;
-    /* Use a slightly smaller font size */
     color: var(--dark-gray);
-    /* Keep the dark gray color for contrast */
     margin: 5px 0;
-    /* Space above and below */
     line-height: 1.5;
-    /* Improve readability with line height */
 }
 
-/* Add a subtle border around the price */
 .product .price {
     border-bottom: 1px solid var(--light-gray);
-    /* Light bottom border */
     padding-bottom: 5px;
-    /* Space between text and border */
 }
 
-/* Responsive grid adjustments */
 @media (max-width: 1200px) {
     .product-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -432,14 +398,12 @@ footer {
     color: var(--pure-white);
 }
 
-/* Touch device optimization */
 @media (hover: none) {
     .product:hover {
         transform: none;
     }
 }
 
-/* Educational Resources section */
 .educational-resources {
     width: 100%;
     max-width: 1400px;
@@ -484,7 +448,6 @@ footer {
     border-bottom-color: var(--primary-red);
 }
 
-/* Special Announcements section */
 .special-announcements {
     width: 100%;
     max-width: 1400px;
@@ -531,7 +494,6 @@ footer {
     font-size: 1.4rem;
 }
 
-/* Responsive adjustments */
 @media (max-width: 900px) {
     .testimonial {
         font-size: 1.3rem;
@@ -562,7 +524,6 @@ footer {
     }
 }
 
-/* Hamburger Menu Styles */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -583,7 +544,6 @@ footer {
     transition: all 0.3s ease;
 }
 
-/* Mobile Menu Styles */
 @media (max-width: 768px) {
     header {
         padding: 20px;
@@ -653,7 +613,6 @@ footer {
         transform: scaleX(1);
     }
 
-    /* Hamburger Animation */
     .hamburger span {
         background-color: var(--dark-gray);
     }
@@ -674,18 +633,39 @@ footer {
         transform: rotate(-45deg) translate(6px, -6px);
     }
 
-    /* Prevent body scroll when menu is open */
     body.menu-open {
         overflow: hidden;
     }
 
-    /* Logo color change when menu is open */
     .menu-open .logo {
         color: var(--pure-white);
     }
+
+    header.menu-open {
+        left: 0;
+        width: 100%;
+    }
+
+    nav {
+        margin: 0;
+        padding: 0;
+    }
+
+    nav ul {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        left: 0;
+        transform: translateX(0);
+    }
+
+    body.menu-open {
+        overflow: hidden;
+        width: 100%;
+        position: fixed;
+    }
 }
 
-/* Update dark mode compatibility */
 @media (prefers-color-scheme: dark) {
     header.scrolled {
         background: rgba(212, 212, 212, 0.61);
