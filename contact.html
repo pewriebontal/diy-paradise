@@ -1,8 +1,8 @@
 <!-- 
-    File: contact.html
-    Author: Min Thu Khaing
-    Created: October 11, 2024
--->
+   File: contact.html
+   Author: Min Thu Khaing
+   Created: October 11, 2024
+   -->
 <!doctype html>
 <html lang="en">
 
@@ -12,6 +12,55 @@
     <title>Contact Us - DIY Paradise</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const hamburger = document.querySelector(".hamburger");
+            const navMenu = document.querySelector("nav ul");
+
+            hamburger.addEventListener("click", () => {
+                hamburger.classList.toggle("active");
+                navMenu.classList.toggle("active");
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener("click", (e) => {
+                if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                    hamburger.classList.remove("active");
+                    navMenu.classList.remove("active");
+                }
+            });
+
+            // Close menu when clicking a link
+            navMenu.querySelectorAll("a").forEach((link) => {
+                link.addEventListener("click", () => {
+                    hamburger.classList.remove("active");
+                    navMenu.classList.remove("active");
+                });
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const header = document.querySelector("header");
+            const scrollThreshold = 50;
+
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > scrollThreshold) {
+                    header.classList.add("scrolled");
+                } else {
+                    header.classList.remove("scrolled");
+                }
+            });
+        });
+
+        window.addEventListener("scroll", () => {
+            const header = document.querySelector("header");
+            if (window.scrollY > 20) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        });
+    </script>
     <style>
         /* Contact Form Container */
         .contact-form {
@@ -218,31 +267,25 @@
             </ul>
         </nav>
     </header>
-
     <main>
         <h1>Contact Us</h1>
-
         <form class="contact-form" action="https://jkorpela.fi/cgi-bin/echo.cgi" method="post">
             <div class="form-group">
                 <label for="name">Your Name:</label>
                 <input type="text" id="name" name="name" required placeholder="Enter your name" />
             </div>
-
             <div class="form-group">
                 <label for="email">Email Address:</label>
                 <input type="email" id="email" name="email" required placeholder="Enter your email" />
             </div>
-
             <div class="form-group">
                 <label for="subject">Subject:</label>
                 <input type="text" id="subject" name="subject" required placeholder="Enter subject" />
             </div>
-
             <div class="form-group">
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" required placeholder="Enter your message"></textarea>
             </div>
-
             <div class="radio-group">
                 <p>Priority:</p>
                 <label>
@@ -254,70 +297,18 @@
                     Urgent
                 </label>
             </div>
-
             <div class="button-group">
                 <button type="submit">Send Message</button>
                 <button type="reset">Clear Form</button>
             </div>
         </form>
     </main>
-
     <footer>
         <p class="copyright">
             &copy; 2024 DIY Paradise. Created by Min Thu Khaing -
             <a href="mailto:MinThuKhaing@uon.edu.au">MinThuKhaing@uon.edu.au</a>
         </p>
     </footer>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const hamburger = document.querySelector(".hamburger");
-            const navMenu = document.querySelector("nav ul");
-
-            hamburger.addEventListener("click", () => {
-                hamburger.classList.toggle("active");
-                navMenu.classList.toggle("active");
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener("click", (e) => {
-                if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-                    hamburger.classList.remove("active");
-                    navMenu.classList.remove("active");
-                }
-            });
-
-            // Close menu when clicking a link
-            navMenu.querySelectorAll("a").forEach((link) => {
-                link.addEventListener("click", () => {
-                    hamburger.classList.remove("active");
-                    navMenu.classList.remove("active");
-                });
-            });
-        });
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const header = document.querySelector("header");
-            const scrollThreshold = 50;
-
-            window.addEventListener("scroll", () => {
-                if (window.scrollY > scrollThreshold) {
-                    header.classList.add("scrolled");
-                } else {
-                    header.classList.remove("scrolled");
-                }
-            });
-        });
-
-        window.addEventListener("scroll", () => {
-            const header = document.querySelector("header");
-            if (window.scrollY > 20) {
-                header.classList.add("scrolled");
-            } else {
-                header.classList.remove("scrolled");
-            }
-        });
-    </script>
 </body>
 
 </html>

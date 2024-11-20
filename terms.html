@@ -1,8 +1,8 @@
 <!-- 
-    File: terms.html
-    Author: Min Thu Khaing
-    Created: October 11, 2024
--->
+   File: terms.html
+   Author: Min Thu Khaing
+   Created: October 11, 2024
+   -->
 <!doctype html>
 <html lang="en">
 
@@ -12,6 +12,55 @@
     <title>Terms and Conditions - DIY Paradise</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const hamburger = document.querySelector(".hamburger");
+            const navMenu = document.querySelector("nav ul");
+
+            hamburger.addEventListener("click", () => {
+                hamburger.classList.toggle("active");
+                navMenu.classList.toggle("active");
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener("click", (e) => {
+                if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                    hamburger.classList.remove("active");
+                    navMenu.classList.remove("active");
+                }
+            });
+
+            // Close menu when clicking a link
+            navMenu.querySelectorAll("a").forEach((link) => {
+                link.addEventListener("click", () => {
+                    hamburger.classList.remove("active");
+                    navMenu.classList.remove("active");
+                });
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const header = document.querySelector("header");
+            const scrollThreshold = 50;
+
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > scrollThreshold) {
+                    header.classList.add("scrolled");
+                } else {
+                    header.classList.remove("scrolled");
+                }
+            });
+        });
+
+        window.addEventListener("scroll", () => {
+            const header = document.querySelector("header");
+            if (window.scrollY > 20) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        });
+    </script>
     <style>
         .terms-content {
             max-width: 800px;
@@ -84,13 +133,11 @@
             </ul>
         </nav>
     </header>
-
     <main>
         <div class="hero">
             <h1>Terms and Conditions</h1>
             <p>Please read these terms carefully</p>
         </div>
-
         <div class="terms-content">
             <div class="important-notice">
                 <h2>Agreement to Terms</h2>
@@ -100,7 +147,6 @@
                     and any additional terms referenced herein.
                 </p>
             </div>
-
             <section class="terms-section">
                 <h2>1. User Accounts</h2>
                 <p>
@@ -117,7 +163,6 @@
                     <li>Not share account credentials</li>
                 </ul>
             </section>
-
             <section class="terms-section">
                 <h2>2. Purchases and Payment</h2>
                 <p>
@@ -133,7 +178,6 @@
                     <li>Prices may change without notice</li>
                 </ul>
             </section>
-
             <section class="terms-section">
                 <h2>3. Shipping and Returns</h2>
                 <p>
@@ -142,70 +186,18 @@
                     to our return policy conditions.
                 </p>
             </section>
-
             <div class="acceptance-notice">
                 By using our services, you acknowledge that you have read, understood,
                 and agree to be bound by these Terms and Conditions.
             </div>
         </div>
     </main>
-
     <footer>
         <p class="copyright">
             &copy; 2024 DIY Paradise. Created by Min Thu Khaing -
             <a href="mailto:MinThuKhaing@uon.edu.au">MinThuKhaing@uon.edu.au</a>
         </p>
     </footer>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const hamburger = document.querySelector(".hamburger");
-            const navMenu = document.querySelector("nav ul");
-
-            hamburger.addEventListener("click", () => {
-                hamburger.classList.toggle("active");
-                navMenu.classList.toggle("active");
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener("click", (e) => {
-                if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-                    hamburger.classList.remove("active");
-                    navMenu.classList.remove("active");
-                }
-            });
-
-            // Close menu when clicking a link
-            navMenu.querySelectorAll("a").forEach((link) => {
-                link.addEventListener("click", () => {
-                    hamburger.classList.remove("active");
-                    navMenu.classList.remove("active");
-                });
-            });
-        });
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const header = document.querySelector("header");
-            const scrollThreshold = 50;
-
-            window.addEventListener("scroll", () => {
-                if (window.scrollY > scrollThreshold) {
-                    header.classList.add("scrolled");
-                } else {
-                    header.classList.remove("scrolled");
-                }
-            });
-        });
-
-        window.addEventListener("scroll", () => {
-            const header = document.querySelector("header");
-            if (window.scrollY > 20) {
-                header.classList.add("scrolled");
-            } else {
-                header.classList.remove("scrolled");
-            }
-        });
-    </script>
 </body>
 
 </html>

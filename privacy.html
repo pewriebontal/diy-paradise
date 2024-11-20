@@ -1,8 +1,8 @@
 <!-- 
-    File: privacy.html
-    Author: Min Thu Khaing
-    Created: October 11, 2024
--->
+   File: privacy.html
+   Author: Min Thu Khaing
+   Created: October 11, 2024
+   -->
 <!doctype html>
 <html lang="en">
 
@@ -12,6 +12,55 @@
     <title>Privacy Policy - DIY Paradise</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const hamburger = document.querySelector(".hamburger");
+            const navMenu = document.querySelector("nav ul");
+
+            hamburger.addEventListener("click", () => {
+                hamburger.classList.toggle("active");
+                navMenu.classList.toggle("active");
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener("click", (e) => {
+                if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                    hamburger.classList.remove("active");
+                    navMenu.classList.remove("active");
+                }
+            });
+
+            // Close menu when clicking a link
+            navMenu.querySelectorAll("a").forEach((link) => {
+                link.addEventListener("click", () => {
+                    hamburger.classList.remove("active");
+                    navMenu.classList.remove("active");
+                });
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const header = document.querySelector("header");
+            const scrollThreshold = 50;
+
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > scrollThreshold) {
+                    header.classList.add("scrolled");
+                } else {
+                    header.classList.remove("scrolled");
+                }
+            });
+        });
+
+        window.addEventListener("scroll", () => {
+            const header = document.querySelector("header");
+            if (window.scrollY > 20) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        });
+    </script>
     <style>
         .policy-content {
             max-width: 800px;
@@ -80,13 +129,11 @@
             </ul>
         </nav>
     </header>
-
     <main>
         <div class="hero">
             <h1>Privacy Policy</h1>
             <p>How we protect your information</p>
         </div>
-
         <div class="policy-content">
             <section class="policy-section">
                 <h2>Information We Collect</h2>
@@ -104,7 +151,6 @@
                     <li>Device and browser information</li>
                 </ul>
             </section>
-
             <section class="policy-section">
                 <h2>How We Use Your Information</h2>
                 <p>We use the information we collect in various ways, including:</p>
@@ -115,7 +161,6 @@
                     <li>Communicate with you about promotions, updates, and news</li>
                 </ul>
             </section>
-
             <section class="policy-section">
                 <h2>Data Protection</h2>
                 <p>
@@ -125,67 +170,15 @@
                     industry-standard encryption to protect your data.
                 </p>
             </section>
-
             <p class="last-updated">Last updated: October 9, 2024</p>
         </div>
     </main>
-
     <footer>
         <p class="copyright">
             &copy; 2024 DIY Paradise. Created by Min Thu Khaing -
             <a href="mailto:MinThuKhaing@uon.edu.au">MinThuKhaing@uon.edu.au</a>
         </p>
     </footer>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const hamburger = document.querySelector(".hamburger");
-            const navMenu = document.querySelector("nav ul");
-
-            hamburger.addEventListener("click", () => {
-                hamburger.classList.toggle("active");
-                navMenu.classList.toggle("active");
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener("click", (e) => {
-                if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-                    hamburger.classList.remove("active");
-                    navMenu.classList.remove("active");
-                }
-            });
-
-            // Close menu when clicking a link
-            navMenu.querySelectorAll("a").forEach((link) => {
-                link.addEventListener("click", () => {
-                    hamburger.classList.remove("active");
-                    navMenu.classList.remove("active");
-                });
-            });
-        });
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const header = document.querySelector("header");
-            const scrollThreshold = 50;
-
-            window.addEventListener("scroll", () => {
-                if (window.scrollY > scrollThreshold) {
-                    header.classList.add("scrolled");
-                } else {
-                    header.classList.remove("scrolled");
-                }
-            });
-        });
-
-        window.addEventListener("scroll", () => {
-            const header = document.querySelector("header");
-            if (window.scrollY > 20) {
-                header.classList.add("scrolled");
-            } else {
-                header.classList.remove("scrolled");
-            }
-        });
-    </script>
 </body>
 
 </html>
