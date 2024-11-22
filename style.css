@@ -16,6 +16,8 @@
     --dark-gray: #1a1a1a;
     --light-gray: #e5e5e5;
     --pure-white: #ffffff;
+    --frosted-glass-white: rgba(255, 255, 255, 0.53);
+    --frosted-glass-dark: rgba(26, 26, 26, 0.7);
 }
 
 html,
@@ -426,14 +428,22 @@ footer {
     text-align: center;
     padding: 30px 20px;
     background-color: var(--dark-gray);
-    color: var(--pure-white);
+    color: var(--pure-black);
     font-size: 0.9rem;
+    line-height: 1.6;
     margin-top: auto;
     letter-spacing: 1px;
+    background: rgba(255, 255, 255, 0.53);
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 1);
 }
 
 .copyright a {
-    color: var(--pure-white);
+    color: var(--pure-black);
+    text-decoration: none;
 }
 
 @media (hover: none) {
