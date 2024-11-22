@@ -196,13 +196,18 @@ main {
     flex-direction: column;
     align-items: center;
     margin-top: 80px;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(44px);
+    -webkit-backdrop-filter: blur(44px);
 }
 
 .hero {
-    background-color: var(--dark-gray);
-    color: var(--pure-white);
+    background: rgba(255, 255, 255, 0.53);
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 1);
+    color: var(--pure-black);
     text-align: left;
     padding: 100px 40px;
     width: 100%;
@@ -220,7 +225,7 @@ main {
     left: 0;
     width: 100%;
     height: 4px;
-    background-color: var(--primary-green);
+    /* background-color: var(--primary-green); */
 }
 
 h1 {
@@ -237,7 +242,7 @@ h1 {
     width: 100%;
     max-width: 1400px;
     margin: 40px auto;
-    padding: 0 20px;
+    padding: 0 10px;
 }
 
 .featured-products h2,
@@ -251,7 +256,7 @@ h1 {
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    gap: 1rem;
     grid-auto-rows: minmax(300px, auto);
     width: 100%;
 }
@@ -364,11 +369,12 @@ h1 {
 }
 
 .product {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 2px solid var(--dark-gray);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.53);
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 1);
     text-align: left;
     padding: 15px;
     transition: transform 0.2s;
@@ -390,7 +396,7 @@ h1 {
     left: -2px;
     width: calc(100% + 4px);
     height: 4px;
-    background-color: var(--primary-green);
+    /* background-color: var(--primary-green); */
 }
 
 .product img {
@@ -398,6 +404,7 @@ h1 {
     height: 60%;
     object-fit: cover;
     border: 1px solid var(--light-gray);
+    border-radius: 12px;
 }
 
 .product h3 {
@@ -440,10 +447,12 @@ footer {
     max-width: 1400px;
     margin: 40px auto;
     padding: 3rem 20px;
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 2px solid var(--dark-gray);
+    background: rgba(255, 255, 255, 0.53);
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 1);
     position: relative;
 }
 
@@ -454,7 +463,7 @@ footer {
     left: -2px;
     width: calc(100% + 4px);
     height: 4px;
-    background-color: var(--primary-green);
+    /* background-color: var(--primary-green); */
 }
 
 .educational-resources h2 {
@@ -486,11 +495,14 @@ footer {
     max-width: 1400px;
     margin: 40px auto;
     padding: 3rem 20px;
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    background-color: var(--dark-gray);
-    color: var(--pure-white);
+    background: rgba(255, 255, 255, 0.53);
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 1);
+    /* background-color: var(--dark-gray); */
+    color: var(--pure-black);
     position: relative;
     text-align: center;
 }
@@ -509,7 +521,7 @@ footer {
     left: 0;
     width: 100%;
     height: 4px;
-    background-color: var(--primary-green);
+    /* background-color: var(--primary-green); */
 }
 
 .special-announcements h2 {
@@ -525,7 +537,7 @@ footer {
 }
 
 .special-offer {
-    color: var(--primary-green);
+    color: var(--pure-black);
     font-weight: 700;
     font-size: 1.4rem;
 }
