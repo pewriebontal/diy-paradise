@@ -1,0 +1,286 @@
+<!-- 
+   File: contact.html
+   Author: Min Thu Khaing
+   Created: October 11, 2024
+   -->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - DIY Paradise</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <script src="/assets/js/main.js" defer></script>
+
+    <style>
+        /* Contact Form Container */
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            border: 2px solid var(--dark-gray);
+            background-color: var(--pure-white);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.53);
+            border-radius: 12px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 1);
+        }
+
+        /* Form Groups */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            color: var(--dark-gray);
+        }
+
+        /* Form Inputs */
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--dark-gray);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            transition:
+                border-color 0.3s,
+                box-shadow 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-red);
+            box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Radio Group */
+        .radio-group {
+            margin: 1.5rem 0;
+        }
+
+        .radio-group p {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        .radio-group label {
+            display: inline-flex;
+            align-items: center;
+            margin-right: 1.5rem;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            cursor: pointer;
+        }
+
+        .radio-group input[type="radio"] {
+            margin-right: 0.5rem;
+            cursor: pointer;
+        }
+
+        /* Button Group */
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .button-group button {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            background-color: var(--dark-gray);
+            color: var(--pure-white);
+            font-weight: 500;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .button-group button:hover {
+            background-color: var(--primary-red);
+            transform: translateY(-2px);
+        }
+
+        .button-group button:active {
+            transform: translateY(0);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .contact-form {
+                margin: 1.5rem auto;
+                padding: 1.5rem;
+            }
+
+            .form-group {
+                margin-bottom: 1rem;
+            }
+
+            .button-group {
+                margin-top: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-form {
+                margin: 1rem;
+                padding: 1rem;
+            }
+
+            .button-group {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .button-group button {
+                width: 100%;
+            }
+
+            .radio-group label {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+
+        /* Focus styles for accessibility */
+        input:focus-visible,
+        textarea:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--primary-red);
+            outline-offset: 2px;
+        }
+
+        /* Error state styles */
+        .form-group input:invalid:not(:placeholder-shown),
+        .form-group textarea:invalid:not(:placeholder-shown) {
+            border-color: var(--primary-red);
+        }
+
+        /* Loading state for submit button */
+        .button-group button[type="submit"]:disabled {
+            background-color: var(--light-gray);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Add placeholder styling */
+        ::placeholder {
+            color: #999;
+            opacity: 1;
+        }
+
+        /* Custom scrollbar for textarea */
+        textarea::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        textarea::-webkit-scrollbar-track {
+            background: var(--light-gray);
+        }
+
+        textarea::-webkit-scrollbar-thumb {
+            background: var(--dark-gray);
+            border-radius: 4px;
+        }
+
+        textarea::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-red);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cookie-consent">
+        <p>
+            We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
+            Learn more in our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms and
+                Conditions</a>.
+        </p>
+        <div class="buttons">
+            <button class="accept">Accept</button>
+            <button class="decline">Decline</button>
+        </div>
+    </div>
+    <header>
+        <a href="index.html" class="logo-link">
+            <div class="logo">&lt;DIY Paradise/&gt;</div>
+        </a>
+        <nav>
+            <button class="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="terms.html">Terms</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Contact Us</h1>
+        <form class="contact-form" action="https://jkorpela.fi/cgi-bin/echo.cgi" method="post">
+            <div class="form-group">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your name" />
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email" />
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" required placeholder="Enter subject" />
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required placeholder="Enter your message"></textarea>
+            </div>
+            <div class="radio-group">
+                <p>Priority:</p>
+                <label>
+                    <input type="radio" name="priority" value="normal" required />
+                    Normal
+                </label>
+                <label>
+                    <input type="radio" name="priority" value="urgent" required />
+                    Urgent
+                </label>
+            </div>
+            <div class="button-group">
+                <button type="submit">Send Message</button>
+                <button type="reset">Clear Form</button>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <p class="copyright">
+            &copy; 2024 DIY Paradise. Designed and Developed with 🩷 by Min Thu Khaing (c3489993) <a href="mailto:MinThuKhaing@uon.edu.au">MinThuKhaing@uon.edu.au</a>
+        </p>
+        <p class="copyright">
+            A project for SENG1050: Web Technologies, Bachelor of Information Technology, <a href="https://uon.edu.au">University of Newcastle</a>.
+        </p>
+    </footer>
+</body>
+
+</html>

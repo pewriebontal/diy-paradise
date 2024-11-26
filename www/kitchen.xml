@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    File: kitchen.xml
+    Author: Min Thu Khaing
+    Created: October 11, 2024
+-->
+<!DOCTYPE products [
+    <!ENTITY currency "AUD">
+    <!ENTITY company "DIY Paradise">
+
+    <!ELEMENT products (category, product+)>
+    <!ELEMENT category (#PCDATA)>
+    <!ELEMENT product (name, description, pricing, searchTags?, reviews*, images+, relatedURL, specifications, manufacturer, stockLevel)>
+    <!ELEMENT name (#PCDATA)>
+    <!ELEMENT description (#PCDATA)>
+    <!ELEMENT pricing (#PCDATA)>
+    <!ELEMENT searchTags (tag*)>
+    <!ELEMENT tag (#PCDATA)>
+    <!ELEMENT reviews (review*)>
+    <!ELEMENT review (#PCDATA)>
+    <!ATTLIST review
+        stars CDATA #REQUIRED
+        date CDATA #REQUIRED>
+    <!ELEMENT images (image+)>
+    <!ELEMENT image EMPTY>
+    <!ATTLIST image
+        src CDATA #REQUIRED
+        alt CDATA #REQUIRED>
+    <!ELEMENT relatedURL (#PCDATA)>
+    <!ELEMENT specifications (spec+)>
+    <!ELEMENT spec (#PCDATA)>
+    <!ATTLIST spec type CDATA #REQUIRED>
+    <!ELEMENT manufacturer (#PCDATA)>
+    <!ELEMENT stockLevel (#PCDATA)>
+    <!ATTLIST stockLevel status (in-stock|low-stock|out-of-stock) #REQUIRED>
+]>
+<products>
+    <category>Kitchen</category>
+    <product>
+        <name>KitchenPro Stand Mixer Elite</name>
+        <description>750W motor with planetary mixing action and 10 speed settings</description>
+        <pricing>&currency; 499.99</pricing>
+        <searchTags>
+            <tag>mixer</tag>
+            <tag>baking</tag>
+            <tag>appliance</tag>
+        </searchTags>
+        <reviews>
+            <review stars="5" date="2024-09-15">Amazing quality, perfect for heavy-duty baking!</review>
+            <review stars="4" date="2024-09-01">Great mixer, a bit loud but works well.</review>
+        </reviews>
+        <images>
+            <image src="images/stand-mixer.jpg" alt="Professional Stand Mixer" />
+        </images>
+        <relatedURL>https://diyparadise.bontal.net/kitchenpro-mixer</relatedURL>
+        <specifications>
+            <spec type="power">750W</spec>
+            <spec type="speeds">10</spec>
+            <spec type="bowl-capacity">5.7L</spec>
+        </specifications>
+        <manufacturer>KitchenPro</manufacturer>
+        <stockLevel status="in-stock">25</stockLevel>
+    </product>
+    <product>
+        <name>SmartCrisp Air Fryer XL</name>
+        <description>8-in-1 functionality with 6L capacity and digital touch controls</description>
+        <pricing>&currency; 179.99</pricing>
+        <searchTags>
+            <tag>air fryer</tag>
+            <tag>cooking</tag>
+            <tag>smart appliance</tag>
+        </searchTags>
+        <reviews>
+            <review stars="5" date="2024-10-01">Perfect for family meals!</review>
+        </reviews>
+        <images>
+            <image src="images/air-fryer.jpg" alt="Digital Air Fryer XL" />
+        </images>
+        <relatedURL>https://diyparadise.bontal.net/smartcrisp</relatedURL>
+        <specifications>
+            <spec type="capacity">6L</spec>
+            <spec type="functions">8</spec>
+            <spec type="temperature-range">75-200°C</spec>
+        </specifications>
+        <manufacturer>SmartCrisp</manufacturer>
+        <stockLevel status="low-stock">5</stockLevel>
+    </product>
+    <product>
+        <name>ChefMaster Food Processor</name>
+        <description>1000W motor with 14-cup capacity and commercial-grade blades</description>
+        <pricing>&currency; 299.99</pricing>
+        <searchTags>
+            <tag>food processor</tag>
+            <tag>kitchen</tag>
+            <tag>appliance</tag>
+        </searchTags>
+        <reviews>
+            <review stars="4" date="2024-09-20">Powerful and versatile!</review>
+        </reviews>
+        <images>
+            <image src="images/food-processor.jpg" alt="Professional Food Processor" />
+        </images>
+        <relatedURL>https://diyparadise.bontal.net/chefmaster</relatedURL>
+        <specifications>
+            <spec type="power">1000W</spec>
+            <spec type="capacity">14-cup</spec>
+            <spec type="speeds">3</spec>
+        </specifications>
+        <manufacturer>ChefMaster</manufacturer>
+        <stockLevel status="in-stock">15</stockLevel>
+    </product>
+</products>
